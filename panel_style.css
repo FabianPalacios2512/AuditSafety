@@ -1,0 +1,123 @@
+/* panel_style.css */
+
+/* Asegúrate de que las variables de color de style.css estén disponibles */
+/* Si no lo están porque no quieres enlazar style.css, defínelas aquí de nuevo:
+:root {
+    --color-orange: #FF8C00;
+    --color-blue: #007BFF;
+    --color-green-check: #28A745;
+    --color-dark-text: #333333;
+    --color-light-bg: #f4f6f8;
+    --color-white: #FFFFFF;
+}
+*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--color-light-bg);
+    color: var(--color-dark-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header del Panel */
+.panel-header {
+    background-color: var(--color-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 3px solid var(--color-orange); /* Detalle con color de marca */
+}
+
+.panel-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-panel {
+    display: flex;
+    align-items: center;
+}
+
+.company-logo-panel {
+    height: 40px; /* Ajusta según tu logo */
+    margin-right: 15px;
+}
+
+.logo-panel span {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-blue); /* Usando el azul de la marca */
+}
+
+.btn-logout {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #E67E00; /* Naranja más oscuro */
+}
+
+/* Main Content del Panel */
+.panel-main {
+    flex-grow: 1; /* Hace que el contenido principal ocupe el espacio disponible */
+    padding: 30px 0;
+}
+
+.panel-main h1 {
+    color: var(--color-dark-text);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-blue);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.panel-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo para widgets */
+    gap: 20px; /* Espacio entre widgets */
+    margin-top: 20px;
+}
+
+.widget {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.widget h2 {
+    color: var(--color-blue);
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+/* Footer del Panel */
+.panel-footer {
+    background-color: #333; /* Footer oscuro */
+    color: var(--color-light-bg);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.panel-footer .container p {
+    margin: 0;
+}

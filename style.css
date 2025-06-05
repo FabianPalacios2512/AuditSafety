@@ -1,0 +1,224 @@
+/* :root (Variables de Color - Mantenemos las que ya tienes) */
+:root {
+    --color-orange: #FF8C00;
+    --color-blue: #007BFF;
+    --color-green-check: #28A745;
+    --color-dark-text: #333333;
+    --color-label-text: #454545; /* Un gris ligeramente más suave para etiquetas */
+    --color-light-bg: #f4f6f8;  /* Un fondo global ligeramente diferente, más suave */
+    --color-white: #FFFFFF;
+    --color-input-border: #ced4da; /* Borde de input estándar */
+    --color-input-focus-border: var(--color-blue);
+    --color-link: var(--color-blue);
+    --color-placeholder: #999999; /* Color para el texto del placeholder */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna si está disponible, fallback a sans-serif */
+    background-color: var(--color-light-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--color-dark-text); /* Color de texto base */
+}
+
+.login-page {
+    width: 100%;
+    max-width: 400px; /* Un poco más estrecho podría verse más elegante */
+}
+
+.login-form-container {
+    background-color: var(--color-white);
+    padding: 35px 40px; /* Aumentar padding para más aire */
+    border: 1px solid #e0e0e0; /* Borde aún más sutil */
+    border-radius: 8px;     /* Bordes un poco más redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra más suave y difusa */
+}
+
+.logo-area {
+    text-align: center;
+    margin-bottom: 30px; /* Más espacio debajo del logo */
+}
+
+.company-logo {
+    max-width: 160px; /* Podrías ajustar si el logo es muy grande */
+    margin-bottom: 0; /* Quitar margen si el logo es la única cosa en logo-area */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {
+    margin-bottom: 20px; /* Espaciado consistente */
+}
+
+.input-group label {
+    display: block;
+    color: var(--color-label-text);
+    margin-bottom: 8px; /* Un poco más de espacio entre label e input */
+    font-size: 14px;
+    font-weight: 600; /* Semi-bold para un look más refinado que bold completo */
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px; /* Más padding vertical y horizontal para mejor tacto */
+    border: 1px solid var(--color-input-border);
+    border-radius: 6px; /* Bordes de input más redondeados */
+    box-sizing: border-box;
+    font-size: 16px;
+    color: var(--color-dark-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input[type="text"]::placeholder,
+.input-group input[type="password"]::placeholder {
+    color: var(--color-placeholder);
+    opacity: 1; /* Firefox tiene una opacidad menor por defecto */
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-input-focus-border);
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-blue-rgb, 0, 123, 255), 0.25); /* Definir --color-blue-rgb si es necesario o usar valores directos */
+    /* Para que la sombra funcione con variable de color:
+       Añade a :root: --color-blue-rgb: 0, 123, 255; (los valores RGB de tu azul)
+       O usa: box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); directamente
+    */
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px; /* Reducir un poco el margen superior si el input-group ya tiene suficiente */
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    /* Para asegurar la alineación a la izquierda con los inputs: */
+    /* Los inputs tienen padding interno. El checkbox no. */
+    /* Si los inputs tienen padding-left: 15px, el checkbox parecerá desalineado. */
+    /* No hay una solución simple con CSS puro para alinear el *borde* del input con el *borde visual* del checkbox */
+    /* Lo que podemos hacer es asegurar que el grupo "Recordarme" comience lo más a la izquierda posible. */
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px; /* Tamaño explícito para el checkbox */
+    height: 16px; /* Tamaño explícito para el checkbox */
+    accent-color: var(--color-orange);
+    /* Para mejor alineación vertical con el texto: */
+    vertical-align: middle; /* o flex align-items center ya lo hace */
+    position: relative; /* Puede ayudar con el 'top' */
+    top: -1px; /* Ajuste fino para alineación vertical si es necesario */
+}
+
+.remember-me label {
+    color: var(--color-label-text);
+    font-weight: normal;
+    margin-bottom: 0;
+    cursor: pointer; /* Mejor UX */
+}
+
+.help-link {
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500; /* Un poco de peso */
+    transition: color 0.2s ease;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+    color: var(--color-orange); /* Cambiar a naranja en hover para un toque de marca */
+}
+
+.btn-login {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 15px; /* Consistente con inputs */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px; /* Consistente con inputs */
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    letter-spacing: 0.5px; /* Ligero espaciado entre letras */
+}
+
+.btn-login:hover {
+    background-color: #E67E00;
+    transform: translateY(-1px); /* Sutil elevación */
+}
+
+.btn-login:active {
+    transform: translateY(0); /* Efecto de presión */
+}
+
+.error-message {
+    color: #d93025; /* Rojo más estándar de Google para errores */
+    margin-top: 20px; /* Más espacio para el mensaje de error */
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+    font-weight: 500;
+}
+
+.page-footer {
+    text-align: center;
+    margin-top: 30px; /* Más espacio para el footer */
+    font-size: 13px; /* Un poco más grande para legibilidad */
+    color: #757575; /* Gris medio para el footer */
+}
+
+/* Importante: Añade esto a tu :root si quieres usar la variable en box-shadow */
+/* :root { */
+/* ...otras variables... */
+/* --color-blue-rgb: 0, 123, 255; /* Corresponde a #007BFF */
+/* } */
+/* ... (tus estilos CSS existentes) ... */
+
+/* ESTILOS PARA LA NUEVA SECCIÓN DE CONTACTO */
+.contact-info {
+    text-align: center;
+    margin-top: 25px; /* Espacio después del formulario */
+    margin-bottom: 15px; /* Espacio antes del footer */
+    font-size: 14px;
+    color: var(--color-label-text); /* Color de texto similar al de las etiquetas */
+}
+
+.contact-info .whatsapp-link {
+    color: var(--color-green-check); /* Verde definido en tus variables */
+    font-weight: bold; /* Ya está en <strong> pero lo reforzamos */
+    text-decoration: none; /* Quitar subrayado por defecto */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.contact-info .whatsapp-link:hover,
+.contact-info .whatsapp-link:focus {
+    color: #1E8E3E; /* Un verde un poco más oscuro al pasar el mouse */
+    text-decoration: underline; /* Subrayar al pasar el mouse para indicar que es un enlace */
+}
+
+/* (Opcional) Si quieres añadir un pequeño icono de WhatsApp (requiere Font Awesome o similar)
+.contact-info .whatsapp-link::before {
+    content: "\f232"; Font Awesome WhatsApp icon unicode
+    font-family: "Font Awesome 5 Brands"; O la familia de fuentes de tu icono
+    margin-right: 6px;
+    font-weight: normal; No queremos que el icono sea bold si el texto ya lo es
+}
+*/
+
+/* ... (resto de tus estilos CSS, como las media queries) ... */
